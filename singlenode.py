@@ -36,7 +36,7 @@ def main():
     training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
     training_set_outputs = array([[0, 1, 1, 0]]).T
 
-    net.train(training_set_inputs, training_set_outputs, 50000000)
+    net.train(training_set_inputs, training_set_outputs, 1000)
 
     print "New synaptic weights after training: "
     print net.weight

@@ -34,10 +34,24 @@ class GNN():
 
         for net in xrange(1000):
             net = NeuralNetwork()
-            self.population.append(net.weight) # creating a population
+            self.population.append(net) # creating a population
+           
+    def error(self,input,e_output):
+        
+        self.errors=[]
 
-        print(self.population)
-
+        for individual in self.population:
+                
+                output = individual.think(input)
+                error = e_output - output
+                # if error<0:
+                #     error *= -1
+                #     pass
+                abs(error)
+                self.errors.append(error)
+               
+        pass
+        return self.errors
     pass
 
 
@@ -46,8 +60,8 @@ def main():
     # print "Random starting synaptic weights: "
     # print net.weight
 
-    # training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
-    # training_set_outputs = array([[0, 1, 1, 0]]).T
+    training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
+    training_set_outputs = array([[0, 1, 1, 0]]).T
 
     # net.train(training_set_inputs, training_set_outputs, 10000)
 
@@ -58,6 +72,9 @@ def main():
     # print net.think(array([1, 0, 0]))
 
     gnn = GNN()
+    print(gnn.error(training_set_inputs,training_set_outputs))
+
+
     
 
 if __name__ == '__main__':
