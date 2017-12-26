@@ -28,21 +28,36 @@ class NeuralNetwork():
 
 
 
+class GNN():
+    def __init__(self):
+        self.population = []
+
+        for net in xrange(1000):
+            net = NeuralNetwork()
+            self.population.append(net.weight) # creating a population
+
+        print(self.population)
+
+    pass
+
+
 def main():
-    net = NeuralNetwork()
-    print "Random starting synaptic weights: "
-    print net.weight
+    # net = NeuralNetwork()
+    # print "Random starting synaptic weights: "
+    # print net.weight
 
-    training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
-    training_set_outputs = array([[0, 1, 1, 0]]).T
+    # training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
+    # training_set_outputs = array([[0, 1, 1, 0]]).T
 
-    net.train(training_set_inputs, training_set_outputs, 10000)
+    # net.train(training_set_inputs, training_set_outputs, 10000)
 
-    print "New synaptic weights after training: "
-    print net.weight
+    # print "New synaptic weights after training: "
+    # print net.weight
 
-    print "Considering new situation [1, 0, 0] -> ?: "
-    print net.think(array([1, 0, 0]))
+    # print "Considering new situation [1, 0, 0] -> ?: "
+    # print net.think(array([1, 0, 0]))
+
+    gnn = GNN()
     
 
 if __name__ == '__main__':
