@@ -41,8 +41,8 @@ def main():
     print "New synaptic weights after training: "
     print net.weight
 
-    print "Considering new situation [1, 0, 0] -> ?: "
-    print net.think(array([1, 0, 0]))
+    print "Considering new situation [0, 0, 0] -> ?: "
+    print net.think(array([0, 0, 0]))
     
 
 if __name__ == '__main__':
