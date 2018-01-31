@@ -1,4 +1,4 @@
-from numpy import exp, array, random, dot
+from numpy import exp, array, random, dot,shape
 
 
 class NeuralNetwork():
@@ -6,26 +6,24 @@ class NeuralNetwork():
         random.seed(1)
         self.weight = 2 * random.random((3, 1)) - 1
 
+    def sig(self, x):
+        return 1 / (1 + exp(-x))
 
-    def sig(self,x):
-        return 1/(1 + exp(-x))
+    def sig_der(self, x):
+        return x * (1 - x)
 
-
-    def sig_der(self,x):
-        return x * ( 1 - x )
-
-
-    def train(self,input,e_output,itterations):
+    def train(self, input, e_output, itterations):
         for itteration in xrange(itterations):
             output = self.think(input)
             error = e_output - output
-            adjust = dot(input.T , error * self.sig_der(output) )   #adjustment is the error mul by the input and sigmoid derivative of the output
+            adjust = dot(
+                input.T, error * self.sig_der(output)
+            )  #adjustment is the error mul by the input and sigmoid derivative of the output
             self.weight += adjust
 
-
     def think(self, input):
-        return self.sig(dot(input ,self.weight))
-
+        # print(str(shape(self.sig(dot(input, self.weight))))+'  shape')
+        return self.sig(dot(input, self.weight))
 
 
 def main():
@@ -42,16 +40,8 @@ def main():
     print net.weight
 
     print "Considering new situation [0, 0, 0] -> ?: "
-    print net.think(array([0, 0, 0]))
-    
+    print net.think(array([0, 0,0]))
+
 
 if __name__ == '__main__':
     main()
-
-
-
-
-    
-    
-
-    

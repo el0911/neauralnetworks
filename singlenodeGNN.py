@@ -172,6 +172,7 @@ class GNN():
 
             child =  NeuralNetwork()
             r2 = randint(0,3-1)
+            
             for x in xrange(len(child.weight)):
                  child.weight[x]=random.choice( [mother.weight[x][0], father.weight[x][0]] )
            
@@ -195,6 +196,27 @@ def main():
     training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
     training_set_outputs = array([[0, 1, 1, 0]]).T
 
+
+    # result=[]
+
+    # with open('datasets/iris.txt') as f:
+    #     result = [line.rstrip('\n').split(',') for line in f]
+
+
+    # result=array(result,dtype=float)
+
+    
+    # y=[]
+    # for r in result:
+    #     y.append(r[len(result[0])-1])
+
+
+    # y=array(y,dtype=float)
+    # training_set_outputs=reshape(y,(1,len(result))).T
+
+    # training_set_inputs=delete(result,len(result[0]) - 1,1)
+    # training_set_inputs = array(training_set_inputs)
+
     # net.train(training_set_inputs, training_set_outputs, 10000)
 
     # print "New synaptic weights after training: "
@@ -212,7 +234,7 @@ def main():
     print ans.weight
 
     print "Considering new situation [1, 0, 0] -> ?: "
-    print ans.think(array([1, 0, 0]))
+    print ans.think(array([0, 0,0]))
 
   
 
